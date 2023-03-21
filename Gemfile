@@ -42,8 +42,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'launchy'
   gem 'capybara'
-  get 'orderly'
-  gem 'shoulda-matcher'
+  gem 'orderly'
+  gem 'shoulda-matchers'
 end
 
 group :development do
