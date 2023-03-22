@@ -9,7 +9,7 @@ As a visitor
 When I visit '/Conferences'
 Then I see the name of each Conference record in the system
 
-[ ] done
+[x] done
 
 User Story 2, Conference Show 
 
