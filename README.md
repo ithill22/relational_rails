@@ -1,24 +1,81 @@
-# README
+Iteration 1
+CRUD
+[ ] done
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+User Story 1, Conference Index 
 
-Things you may want to cover:
+For each Conference table
+As a visitor
+When I visit '/Conferences'
+Then I see the name of each Conference record in the system
 
-* Ruby version
+[ ] done
 
-* System dependencies
+User Story 2, Conference Show 
 
-* Configuration
+As a visitor
+When I visit '/Conferences/:id'
+Then I see the Conference with that id including the Conference's attributes
+(region, power 5, name, national, champions)
+[ ] done
 
-* Database creation
+User Story 3, Team Index 
 
-* Database initialization
+As a visitor
+When I visit '/Team_table_name'
+Then I see each Team in the system including the Team's attributes
+(school name, mascot, rank, private)
+[ ] done
 
-* How to run the test suite
+User Story 4, Team Show 
 
-* Services (job queues, cache servers, search engines, etc.)
+As a visitor
+When I visit '/Team_table_name/:id'
+Then I see the Team with that id including the Team's attributes
+(data from each column that is on the Team table)
+[ ] done
 
-* Deployment instructions
+User Story 5, Conference Teamren Index 
 
-* ...
+As a visitor
+When I visit '/Conferences/:Conference_id/Team_table_name'
+Then I see each Team that is associated with that Conference with each Team's attributes
+(data from each column that is on the Team table)
+ActiveRecord
+[ ] done
+
+User Story 6, Conference Index sorted by Most Recently Created 
+
+As a visitor
+When I visit the Conference index,
+I see that records are ordered by most recently created first
+And next to each of the records I see when it was created
+[ ] done
+
+User Story 7, Conference Team Count
+
+As a visitor
+When I visit a Conference's show page
+I see a count of the number of Teamren associated with this Conference
+Usability
+[ ] done
+
+User Story 8, Team Index Link
+
+As a visitor
+When I visit any page on the site
+Then I see a link at the top of the page that takes me to the Team Index
+[ ] done
+
+User Story 9, Conference Index Link
+
+As a visitor
+When I visit any page on the site
+Then I see a link at the top of the page that takes me to the Conference Index
+[ ] done
+
+User Story 10, Conference Team Index Link
+
+As a visitor
+When I visit a Conference show page ('/Conferences/:id')
+Then I see a link to take me to that Conference's `Team_table_name` page ('/Conferences/:id/Team_table_name') -->
