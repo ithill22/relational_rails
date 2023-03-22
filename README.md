@@ -25,7 +25,7 @@ As a visitor
 When I visit '/Team_table_name'
 Then I see each Team in the system including the Team's attributes
 (school name, mascot, rank, private)
-[ ] done
+[x] done
 
 User Story 4, Team Show 
 
