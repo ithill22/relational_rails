@@ -31,7 +31,7 @@ RSpec.describe "/conferences/:conference_id/teams", type: :feature do
     it "Then I see each team that is associated with that conference with each team's attributes" do
 
       visit "/conferences/#{pac_12.id}/teams"
-
+save_and_open_page
       expect(page).to have_content(team1.school_name)
       expect(page).to have_content(team1.mascot)
       expect(page).to have_content(team1.rank)

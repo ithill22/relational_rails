@@ -1,0 +1,7 @@
+<h1><%= @conference.name %> Teams</h1>
+<% @conference.teams.each do |team| %>
+  <p>School Name: <%= team.school_name %></p>
+  <p>Mascot: <%= team.mascot %></p>
+  <p>Rank: <%= team.rank %></p>
+  <p>Private School?: <%= team.private %></p>
+<% end %>
