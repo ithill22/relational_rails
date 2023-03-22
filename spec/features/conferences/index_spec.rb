@@ -10,11 +10,10 @@ RSpec.describe "/conferences", type: :feature do
                                region: "Upper Midwest",
                                national_champions: 10,
                                power_five: true) }
-  describe "as a visitor, when I visit the conference index page" do
+  describe "as a visitor, when I visit the /conferences" do
     it "I see the name of each conference" do
       visit "/conferences"
 
-      save_and_open_page
       expect(page).to have_content(pac_12.name)
       expect(page).to have_content(big_10.name)
     end

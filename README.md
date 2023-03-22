@@ -1,6 +1,6 @@
 Iteration 1
 CRUD
-[ ] done
+[x] done
 
 User Story 1, Conference Index 
 
