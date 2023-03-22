@@ -17,7 +17,8 @@ As a visitor
 When I visit '/Conferences/:id'
 Then I see the Conference with that id including the Conference's attributes
 (region, power 5, name, national, champions)
-[ ] done
+
+[x] done
 
 User Story 3, Team Index 
 
@@ -25,7 +26,7 @@ As a visitor
 When I visit '/Team_table_name'
 Then I see each Team in the system including the Team's attributes
 (school name, mascot, rank, private)
-[x] done
+[ ] done
 
 User Story 4, Team Show 
 
