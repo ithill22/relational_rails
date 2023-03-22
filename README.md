@@ -26,7 +26,8 @@ As a visitor
 When I visit '/Team_table_name'
 Then I see each Team in the system including the Team's attributes
 (school name, mascot, rank, private)
-[ ] done
+
+[x] done
 
 User Story 4, Team Show 
 
@@ -36,12 +37,13 @@ Then I see the Team with that id including the Team's attributes
 (data from each column that is on the Team table)
 [ ] done
 
-User Story 5, Conference Teamren Index 
+User Story 5, Conference Teams Index 
 
 As a visitor
 When I visit '/Conferences/:Conference_id/Team_table_name'
 Then I see each Team that is associated with that Conference with each Team's attributes
 (data from each column that is on the Team table)
+
 ActiveRecord
 [ ] done
 
