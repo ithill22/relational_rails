@@ -74,5 +74,15 @@ RSpec.describe '/conferences/:id', type: :feature do
 
       expect(page).to have_link("Conferences", href: '/conferences')
     end
+
+    it "I see a link to take me that conference's team index page" do
+      visit "/conferences/#{pac_12.id}/teams"
+
+      expect(page).to have_link("#{pac_12.name} Teams", href: 'conference/:conference_id/teams')
+
+      visit "/conferences/#{big_10.id}/teams"
+
+      expect(page).to have_link("#{big_10.name} Teams", href: 'conference/:conference_id/teams')
+    end
   end
 end
