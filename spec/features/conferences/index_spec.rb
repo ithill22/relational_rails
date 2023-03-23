@@ -38,5 +38,20 @@ RSpec.describe "/conferences", type: :feature do
 
       expect(page).to have_link("Conferences", href: '/conferences')
     end
+
+    it "I see a link to create a new conference record, 'New Conference'" do
+      visit "/conferences"
+
+      expect(page).to have_link("New Conference", href: '/conferences/new')
+    end
+
+    describe "When I click 'New Conference'" do
+      it "I am taken to 'conferences/new' where I see a form for a new conference record" do
+        visit "/conferences"
+        click_link "New Conference"
+
+        expect(current_path).to eq('/conferences/new')
+      end
+    end
   end
 end

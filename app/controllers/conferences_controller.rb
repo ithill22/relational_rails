@@ -6,4 +6,18 @@ class ConferencesController < ApplicationController
   def show
     @conference = Conference.find(params[:id])
   end
+
+  def new
+    @conference = Conference.new
+  end
+
+  def create
+    conference = Conference.create(conference_params)
+    redirect_to '/conferences'
+  end
+
+  private
+    def conference_params
+      params.require(:conference).permit(:name, :region, :power_five, :national_champions)
+    end
 end
