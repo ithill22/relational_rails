@@ -14,10 +14,18 @@ RSpec.describe '/conferences/:id', type: :feature do
                                       mascot: "Buffaloes",
                                       rank: 25,
                                       private: false) }
+  let!(:team3) { pac_12.teams.create!(school_name: "Stanford University",
+                                      mascot: "Cardinals",
+                                      rank: 50,
+                                      private: true) }
   let!(:team2) { big_10.teams.create!(school_name: "University of Iowa",
                                       mascot: "Hawkeyes",
                                       rank: 13,
-                                      private: false) }       
+                                      private: false) }  
+  let!(:team4) { big_10.teams.create!(school_name: "Ohio State University",
+                                      mascot: "Buckeyes",
+                                      rank: 1,
+                                      private: false) }  
   describe "As a visitor, when I visit /conference/:id" do
     it "then i see the conference with the id including the conference's attributes" do
 

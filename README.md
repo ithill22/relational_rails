@@ -16,7 +16,7 @@ User Story 2, Conference Show
 As a visitor
 When I visit '/Conferences/:id'
 Then I see the Conference with that id including the Conference's attributes
-(region, power 5, name, national, champions)
+(region, power 5, name, national champions)
 
 [x] done
 
