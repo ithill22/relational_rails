@@ -1,4 +1,4 @@
 <h1>Conferences</h1>
 <% @conferences.each do |conference| %>
-  <p><%= conference.name %></p>
+  <p><span style="font-size: 26px"><%= conference.name %></span>&emsp;&emsp; Created: <%= conference.created_at %></p>
 <% end %>
