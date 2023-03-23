@@ -47,7 +47,7 @@ Then I see each Team that is associated with that Conference with each Team's at
 
 ActiveRecord
 
-[ ] done
+[x] done
 
 User Story 6, Conference Index sorted by Most Recently Created 
 
@@ -62,7 +62,8 @@ User Story 7, Conference Team Count
 
 As a visitor
 When I visit a Conference's show page
-I see a count of the number of Teamren associated with this Conference
+I see a count of the number of Teams associated with this Conference
+
 Usability
 
 [ ] done
