@@ -79,7 +79,7 @@ RSpec.describe '/conferences/:id', type: :feature do
       visit "/conferences/#{pac_12.id}"
 
       expect(page).to have_link("#{pac_12.name} Teams", href: "conferences/#{pac_12.id}/teams")
-save_and_open_page
+
       visit "/conferences/#{big_10.id}"
 
       expect(page).to have_link("#{big_10.name} Teams", href: "conferences/#{big_10.id}/teams")

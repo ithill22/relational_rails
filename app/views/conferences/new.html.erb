@@ -1,0 +1,18 @@
+<a href="/teams">Teams</a> &emsp; <a href="/conferences">Conferences</a>
+<hr>
+<%= form_with model: @conference, url: "/conferences", method: :post, local: true do |form| %>
+  <h4><%= form.label :title, "Create a new conference:" %></h4>
+  <%= form.label :name, 'Name:' %><br>
+  <%= form.text_field :name %><br><br>
+<%= form.label :region, 'Region:' %><br>
+  <%= form.text_field :region %><br><br>
+  <%= form.label :power_five, 'Is this a Power Five conference?' %><br>
+  <%= form.label :power_five_true, 'Yes' %>
+  <%= form.radio_button :power_five, true %><br>
+  <%= form.label :power_five_false, 'No' %>
+  <%= form.radio_button :power_five, false %><br><br>
+
+  <%= form.label :national_champions, 'Number of National Championships Won by conference:' %><br>
+  <%= form.number_field :national_champions, in: 0..1000, step: 1 %><br><br>
+  <%= form.submit 'Create Conference' %>
+<% end %>
