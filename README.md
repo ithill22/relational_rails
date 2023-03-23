@@ -16,7 +16,7 @@ User Story 2, Conference Show
 As a visitor
 When I visit '/Conferences/:id'
 Then I see the Conference with that id including the Conference's attributes
-(region, power 5, name, national, champions)
+(region, power 5, name, national champions)
 
 [x] done
 
@@ -47,7 +47,7 @@ Then I see each Team that is associated with that Conference with each Team's at
 
 ActiveRecord
 
-[ ] done
+[x] done
 
 User Story 6, Conference Index sorted by Most Recently Created 
 
@@ -62,7 +62,8 @@ User Story 7, Conference Team Count
 
 As a visitor
 When I visit a Conference's show page
-I see a count of the number of Teamren associated with this Conference
+I see a count of the number of Teams associated with this Conference
+
 Usability
 
 [ ] done

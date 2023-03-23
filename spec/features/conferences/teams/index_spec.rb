@@ -32,27 +32,27 @@ RSpec.describe "/conferences/:conference_id/teams", type: :feature do
 
       visit "/conferences/#{pac_12.id}/teams"
 
-      expect(page).to have_content(team1.school_name)
-      expect(page).to have_content(team1.mascot)
-      expect(page).to have_content(team1.rank)
-      expect(page).to have_content(team1.private)
+      expect(page).to have_content("School Name: #{team1.school_name}")
+      expect(page).to have_content("Mascot: #{team1.mascot}")
+      expect(page).to have_content("Rank: #{team1.rank}")
+      expect(page).to have_content("Private School?: #{team1.private}")
 
-      expect(page).to have_content(team3.school_name)
-      expect(page).to have_content(team3.mascot)
-      expect(page).to have_content(team3.rank)
-      expect(page).to have_content(team3.private)
+      expect(page).to have_content("School Name: #{team3.school_name}")
+      expect(page).to have_content("Mascot: #{team3.mascot}")
+      expect(page).to have_content("Rank: #{team3.rank}")
+      expect(page).to have_content("Private School?: #{team3.private}")
 
       visit "/conferences/#{big_10.id}/teams"
 
-      expect(page).to have_content(team2.school_name)
-      expect(page).to have_content(team2.mascot)
-      expect(page).to have_content(team2.rank)
-      expect(page).to have_content(team2.private)
+      expect(page).to have_content("School Name: #{team2.school_name}")
+      expect(page).to have_content("Mascot: #{team2.mascot}")
+      expect(page).to have_content("Rank: #{team2.rank}")
+      expect(page).to have_content("Private School?: #{team2.private}")
 
-      expect(page).to have_content(team4.school_name)
-      expect(page).to have_content(team4.mascot)
-      expect(page).to have_content(team4.rank)
-      expect(page).to have_content(team4.private)
+      expect(page).to have_content("School Name: #{team4.school_name}")
+      expect(page).to have_content("Mascot: #{team4.mascot}")
+      expect(page).to have_content("Rank: #{team4.rank}")
+      expect(page).to have_content("Private School?: #{team4.private}")
     end
   end
 end
