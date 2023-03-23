@@ -17,5 +17,13 @@ RSpec.describe "/conferences", type: :feature do
       expect(page).to have_content(pac_12.name)
       expect(page).to have_content(big_10.name)
     end
+
+    it "I see that records are ordered by most recently created and I can see when each record was created" do
+      visit "/conferences"
+
+      expect(page).to have_content(pac_12.created_at)
+      expect(page).to have_content(big_10.created_at)
+      expect(pac_12.name).to appear_before(big_10.name)
+    end
   end
 end

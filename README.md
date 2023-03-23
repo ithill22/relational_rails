@@ -35,7 +35,8 @@ As a visitor
 When I visit '/Team_table_name/:id'
 Then I see the Team with that id including the Team's attributes
 (data from each column that is on the Team table)
-[ ] done
+
+[x] done
 
 User Story 5, Conference Teams Index 
 
@@ -45,6 +46,7 @@ Then I see each Team that is associated with that Conference with each Team's at
 (data from each column that is on the Team table)
 
 ActiveRecord
+
 [ ] done
 
 User Story 6, Conference Index sorted by Most Recently Created 
@@ -53,6 +55,7 @@ As a visitor
 When I visit the Conference index,
 I see that records are ordered by most recently created first
 And next to each of the records I see when it was created
+
 [ ] done
 
 User Story 7, Conference Team Count
@@ -61,6 +64,7 @@ As a visitor
 When I visit a Conference's show page
 I see a count of the number of Teamren associated with this Conference
 Usability
+
 [ ] done
 
 User Story 8, Team Index Link
@@ -75,6 +79,7 @@ User Story 9, Conference Index Link
 As a visitor
 When I visit any page on the site
 Then I see a link at the top of the page that takes me to the Conference Index
+
 [ ] done
 
 User Story 10, Conference Team Index Link
