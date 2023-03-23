@@ -23,28 +23,28 @@ RSpec.describe '/conferences/:id', type: :feature do
 
       visit "/conferences/#{pac_12.id}"
 
-      expect(page).to have_content(pac_12.name)
-      expect(page).to have_content(pac_12.region)
-      expect(page).to have_content(pac_12.national_champions)
-      expect(page).to have_content(pac_12.power_five)
+      expect(page).to have_content("#{pac_12.name}")
+      expect(page).to have_content("Region: #{pac_12.region}")
+      expect(page).to have_content("National Championships Won: #{pac_12.national_champions}")
+      expect(page).to have_content("Power Five?: #{pac_12.power_five}")
 
       visit "/conferences/#{big_10.id}"
 
-      expect(page).to have_content(big_10.name)
-      expect(page).to have_content(big_10.region)
-      expect(page).to have_content(big_10.national_champions)
-      expect(page).to have_content(big_10.power_five)
+      expect(page).to have_content("#{big_10.name}")
+      expect(page).to have_content("Region: #{big_10.region}")
+      expect(page).to have_content("National Championships Won: #{big_10.national_champions}")
+      expect(page).to have_content("Power Five?: #{big_10.power_five}")
     end
 
     it "I see a count of the number of teams associated with this conference" do
 
       visit "/conferences/#{pac_12.id}"
 
-      expect(page).to have_content(pac_12.teams.size)
+      expect(page).to have_content("Teams in #{pac_12.name}: #{pac_12.teams.size}")
 
       visit "/conferences/#{big_10.id}"
 
-      expect(page).to have_content(big_10.teams.size)
+      expect(page).to have_content("Teams in #{big_10.name}: #{big_10.teams.size}")
     end
   end
 end
