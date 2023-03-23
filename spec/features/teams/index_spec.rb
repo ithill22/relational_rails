@@ -22,15 +22,15 @@ RSpec.describe "/teams", type: :feature do
     it "I see the attributes of each team in the system" do
       visit "/teams"
 
-      expect(page).to have_content(team1.school_name)
-      expect(page).to have_content(team1.mascot)
-      expect(page).to have_content(team1.rank)
-      expect(page).to have_content(team1.private)
+      expect(page).to have_content("School Name: #{team1.school_name}")
+      expect(page).to have_content("Mascot: #{team1.mascot}")
+      expect(page).to have_content("Rank: #{team1.rank}")
+      expect(page).to have_content("Private School?: #{team1.private}")
 
-      expect(page).to have_content(team2.school_name)
-      expect(page).to have_content(team2.mascot)
-      expect(page).to have_content(team2.rank)
-      expect(page).to have_content(team2.private)
+      expect(page).to have_content("School Name: #{team2.school_name}")
+      expect(page).to have_content("Mascot: #{team2.mascot}")
+      expect(page).to have_content("Rank: #{team2.rank}")
+      expect(page).to have_content("Private School?: #{team2.private}")
     end
   end
 end
