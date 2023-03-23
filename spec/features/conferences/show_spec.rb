@@ -56,33 +56,33 @@ RSpec.describe '/conferences/:id', type: :feature do
     end
 
     it "I see a link at the top of the page that take me to the team index page" do
-      visit "/conferences/#{pac_12.id}/teams"
+      visit "/conferences/#{pac_12.id}"
 
       expect(page).to have_link("Teams", href: '/teams')
 
-      visit "/conferences/#{big_10.id}/teams"
+      visit "/conferences/#{big_10.id}"
 
       expect(page).to have_link("Teams", href: '/teams')
     end
 
     it "I see a link at the top of the page that takes me to the conference index page" do
-      visit "/conferences/#{big_10.id}/teams"
+      visit "/conferences/#{big_10.id}"
 
       expect(page).to have_link("Conferences", href: '/conferences')
 
-      visit "/conferences/#{pac_12.id}/teams"
+      visit "/conferences/#{pac_12.id}"
 
       expect(page).to have_link("Conferences", href: '/conferences')
     end
 
     it "I see a link to take me that conference's team index page" do
-      visit "/conferences/#{pac_12.id}/teams"
+      visit "/conferences/#{pac_12.id}"
 
-      expect(page).to have_link("#{pac_12.name} Teams", href: 'conference/:conference_id/teams')
+      expect(page).to have_link("#{pac_12.name} Teams", href: "conferences/#{pac_12.id}/teams")
+save_and_open_page
+      visit "/conferences/#{big_10.id}"
 
-      visit "/conferences/#{big_10.id}/teams"
-
-      expect(page).to have_link("#{big_10.name} Teams", href: 'conference/:conference_id/teams')
+      expect(page).to have_link("#{big_10.name} Teams", href: "conferences/#{big_10.id}/teams")
     end
   end
 end
