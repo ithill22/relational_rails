@@ -27,7 +27,7 @@ RSpec.describe "/conferences/:conference_id/teams", type: :feature do
       rank: 1,
       private: false) }  
   
-  describe 'As a visitory, when i visit /conferences/:conference_id/teams' do
+  describe 'As a visitor, when i visit /conferences/:conference_id/teams' do
     it "Then I see each team that is associated with that conference with each team's attributes" do
 
       visit "/conferences/#{pac_12.id}/teams"
@@ -53,6 +53,26 @@ RSpec.describe "/conferences/:conference_id/teams", type: :feature do
       expect(page).to have_content("Mascot: #{team4.mascot}")
       expect(page).to have_content("Rank: #{team4.rank}")
       expect(page).to have_content("Private School?: #{team4.private}")
+    end
+
+    it "I see a link at the top of the page that take me to the team index page" do
+      visit "/conferences/#{pac_12.id}/teams"
+
+      expect(page).to have_link("Teams", href: '/teams')
+
+      visit "/conferences/#{big_10.id}/teams"
+
+      expect(page).to have_link("Teams", href: '/teams')
+    end
+
+    it "I see a link at the top of the page that takes me to the conference index page" do
+      visit "/conferences/#{big_10.id}/teams"
+
+      expect(page).to have_link("Conferences", href: '/conferences')
+
+      visit "/conferences/#{pac_12.id}/teams"
+
+      expect(page).to have_link("Conferences", href: '/conferences')
     end
   end
 end

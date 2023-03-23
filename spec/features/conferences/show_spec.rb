@@ -54,5 +54,25 @@ RSpec.describe '/conferences/:id', type: :feature do
 
       expect(page).to have_content("Teams in #{big_10.name}: #{big_10.teams.size}")
     end
+
+    it "I see a link at the top of the page that take me to the team index page" do
+      visit "/conferences/#{pac_12.id}/teams"
+
+      expect(page).to have_link("Teams", href: '/teams')
+
+      visit "/conferences/#{big_10.id}/teams"
+
+      expect(page).to have_link("Teams", href: '/teams')
+    end
+
+    it "I see a link at the top of the page that takes me to the conference index page" do
+      visit "/conferences/#{big_10.id}/teams"
+
+      expect(page).to have_link("Conferences", href: '/conferences')
+
+      visit "/conferences/#{pac_12.id}/teams"
+
+      expect(page).to have_link("Conferences", href: '/conferences')
+    end
   end
 end
