@@ -26,5 +26,17 @@ RSpec.describe "/conferences", type: :feature do
       expect(page).to have_content("Created: #{big_10.created_at}")
       expect(pac_12.name).to appear_before(big_10.name)
     end
+
+    it "I see a link at the top of the page that take me to the team index page" do
+      visit "/conferences"
+
+      expect(page).to have_link("Teams", href: '/teams')
+    end
+
+    it "I see a link at the top of the page that takes me to the conference index page" do
+      visit "/conferences"
+
+      expect(page).to have_link("Conferences", href: '/conferences')
+    end
   end
 end

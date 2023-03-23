@@ -32,5 +32,17 @@ RSpec.describe "/teams", type: :feature do
       expect(page).to have_content("Rank: #{team2.rank}")
       expect(page).to have_content("Private School?: #{team2.private}")
     end
+
+    it "I see a link at the top of the page that take me to the team index page" do
+      visit "/teams"
+
+      expect(page).to have_link("Teams", href: '/teams')
+    end
+
+    it "I see a link at the top of the page that takes me to the conference index page" do
+      visit "/teams"
+
+      expect(page).to have_link("Conferences", href: '/conferences')
+    end
   end
 end
