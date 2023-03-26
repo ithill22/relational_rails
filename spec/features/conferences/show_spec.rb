@@ -84,5 +84,20 @@ RSpec.describe '/conferences/:id', type: :feature do
 
       expect(page).to have_link("#{big_10.name} Teams", href: "conferences/#{big_10.id}/teams")
     end
+
+    it "I see a link to update the conference, 'Update Conference'" do
+      visit "/conferences/#{pac_12.id}"
+
+      expect(page).to have_link("Update Conference", href: "/conferences/#{pac_12.id}/edit")
+    end
+
+    describe "When I click 'Update Conference'" do
+      it "I am taken to 'conferences/:id/edit' where I see a form for a new conference record" do
+        visit "/conferences/#{pac_12.id}"
+        click_link "Update Conference"
+
+        expect(current_path).to eq("/conferences/#{pac_12.id}/edit")
+      end
+    end
   end
 end
