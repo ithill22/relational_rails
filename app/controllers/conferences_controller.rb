@@ -20,6 +20,12 @@ class ConferencesController < ApplicationController
     @conference = Conference.find(params[:id])
   end
 
+  def update
+    conference = conference = Conference.find(params[:id])
+    conference.update(conference_params)
+    redirect_to "/conferences/#{conference.id}"
+  end
+
   private
     def conference_params
       params.require(:conference).permit(:name, :region, :power_five, :national_champions)
