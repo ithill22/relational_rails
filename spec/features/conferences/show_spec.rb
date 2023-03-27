@@ -30,7 +30,7 @@ RSpec.describe '/conferences/:id', type: :feature do
     it "then i see the conference with the id including the conference's attributes" do
 
       visit "/conferences/#{pac_12.id}"
-save_and_open_page
+
       expect(page).to have_content("#{pac_12.name}")
       expect(page).to have_content("Region: #{pac_12.region}")
       expect(page).to have_content("National Championships Won: #{pac_12.national_champions}")
