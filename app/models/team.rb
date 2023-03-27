@@ -4,4 +4,8 @@ class Team < ApplicationRecord
   def self.private_true
     where(private: true)
   end
+
+  def team_order(params)
+    teams.order(param[:order_by])
+  end
 end

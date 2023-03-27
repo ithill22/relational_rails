@@ -89,5 +89,16 @@ RSpec.describe "/conferences/:conference_id/teams", type: :feature do
         expect(current_path).to eq("/conferences/#{pac_12.id}/teams/new")
       end
     end
+
+    it "I can see a link to sort teams in alphabetical order" do
+      visit "/conferences/#{pac_12.id}/teams"
+
+      expect(team1.school_name).to appear_before(team3.school_name)
+
+      click_link("A-Z")
+
+      expect(current_path).to eq("/conferences/#{pac_12.id}/teams?order_by=school_name")
+      expect(team3.school_name).to appear_before(team1.school_name)
+    end
   end
 end
