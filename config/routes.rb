@@ -7,6 +7,7 @@ Rails.application.routes.draw do
  patch "/conferences/:id", to: "conferences#update"
  get "/conferences/:conference_id/teams", to: "conferences/teams#index"
  get "/conferences/:conference_id/teams/new", to: "conferences/teams#new"
+ post "/conferences/:conference_id/teams", to: "conferences/teams#create"
 
  get "/teams", to: "teams#index"
  get "/teams/:id", to: "teams#show"
