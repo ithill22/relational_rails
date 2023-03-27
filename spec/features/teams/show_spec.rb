@@ -56,5 +56,20 @@ RSpec.describe '/teams/:id', type: :feature do
 
       expect(page).to have_link("Conferences", href: '/conferences')
     end
+
+    it "I see a link to update the team, 'Update Team'" do
+      visit "/teams/#{team1.id}"
+
+      expect(page).to have_selector(:link_or_button, "Update Team")
+    end
+
+    describe "When I click 'Update Conference'" do
+      it "I am taken to 'teams/:id/edit' where I see a form to edit the team's attributes" do
+        visit "/teams/#{team1.id}"
+        click_button "Update Team"
+
+        expect(current_path).to eq("/teams/#{team1.id}/edit")
+      end
+    end
   end
 end
