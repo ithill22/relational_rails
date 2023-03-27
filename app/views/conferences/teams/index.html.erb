@@ -6,3 +6,4 @@
   <p>Rank: <%= team.rank %></p>
   <p>Private School?: <%= team.private %></p>
 <% end %>
+<p> <%= button_to "Create Team", "/conferences/#{@conference.id}/teams/new", method: :get %></p>
