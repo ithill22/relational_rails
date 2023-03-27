@@ -30,7 +30,7 @@ RSpec.describe '/conferences/:id', type: :feature do
     it "then i see the conference with the id including the conference's attributes" do
 
       visit "/conferences/#{pac_12.id}"
-
+save_and_open_page
       expect(page).to have_content("#{pac_12.name}")
       expect(page).to have_content("Region: #{pac_12.region}")
       expect(page).to have_content("National Championships Won: #{pac_12.national_champions}")
@@ -88,13 +88,13 @@ RSpec.describe '/conferences/:id', type: :feature do
     it "I see a link to update the conference, 'Update Conference'" do
       visit "/conferences/#{pac_12.id}"
 
-      expect(page).to have_link("Update Conference", href: "/conferences/#{pac_12.id}/edit")
+      expect(page).to have_selector(:link_or_button, "Update Conference")
     end
 
     describe "When I click 'Update Conference'" do
       it "I am taken to 'conferences/:id/edit' where I see a form for a new conference record" do
         visit "/conferences/#{pac_12.id}"
-        click_link "Update Conference"
+        click_button "Update Conference"
 
         expect(current_path).to eq("/conferences/#{pac_12.id}/edit")
       end

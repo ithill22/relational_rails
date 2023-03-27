@@ -1,7 +1,7 @@
-<a href="/teams">Teams</a> &emsp; <a href="/conferences">Conferences</a> &emsp; <a href="conferences/<%= @conference.id %>/teams"><%= @conference.name %> Teams</a>
+<%= link_to "Conferences", "/conferences" %> | <%= link_to "All Teams", "/teams" %> | <%= link_to "#{@conference.name} Teams", "conferences/#{@conference.id}/teams" %>
 <h1><%= @conference.name %></h1>
 <p>Region: <%= @conference.region %>
 <p>National Championships Won: <%= @conference.national_champions %>
 <p>Power Five?: <%= @conference.power_five %>
 <p>Teams in <%= @conference.name %>: <%= @conference.number_of_teams %></p>
-
+<p> <%= button_to "Update Conference", "/conferences/#{@conference.id}/edit", method: :get %></p>

@@ -1,11 +1,11 @@
 <%= link_to "Conferences", "/conferences" %> | <%= link_to "Teams", "/teams" %>
-<hr>
-<%= form_with model: @conference, url: "/conferences", method: :post, local: true do |form| %>
-  <h4><%= form.label :title, "Create a new conference:" %></h4>
+<%= form_with model: @conference, url: "/conferences/#{@conference.id}", method: :patch, local: true do |form| %>
+  <h4><%= form.label :title, "Update Conference:" %></h4>
   <%= form.label :name, 'Name:' %><br>
   <%= form.text_field :name %><br><br>
 <%= form.label :region, 'Region:' %><br>
   <%= form.text_field :region %><br><br>
+
   <%= form.label :power_five, 'Is this a Power Five conference?' %><br>
   <%= form.label :power_five_true, 'Yes' %>
   <%= form.radio_button :power_five, true %><br>
@@ -14,5 +14,5 @@
 
   <%= form.label :national_champions, 'Number of National Championships Won by conference:' %><br>
   <%= form.number_field :national_champions, in: 0..1000, step: 1 %><br><br>
-  <%= form.submit 'Create Conference' %>
+  <%= form.submit 'Update Conference' %>
 <% end %>

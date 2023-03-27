@@ -1,4 +1,4 @@
-<a href="/teams">Teams</a> &emsp; <a href="/conferences">Conferences</a>
+<%= link_to "Conferences", "/conferences" %> | <%= link_to "Teams", "/teams" %>
 <h1><%= @conference.name %> Teams</h1>
 <% @conference.teams.each do |team| %>
   <p>School Name: <%= team.school_name %></p>
