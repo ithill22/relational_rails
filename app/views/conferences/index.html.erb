@@ -1,7 +1,11 @@
 <%= link_to "Conferences", "/conferences" %> | <%= link_to "Teams", "/teams" %>
 <h1>Conferences</h1>
+<hr>
+
 <% @conferences.each do |conference| %>
-  <p><span style="font-size: 26px"><%= conference.name %></span>&emsp;&emsp; Created: <%= conference.created_at %></p>
+  <h2><%= link_to conference.name, "/conferences/#{conference.id}" %></h2>
+    <p><%= button_to "Edit", "/conferences/#{conference.id}/edit", method: :get %></p>
+    <p class="tab">- Created: <%=conference.created_at %></p>
 <% end %>
 <%# <a href="/conferences/new">New Conference</a> %>
 <%= button_to "New Conference", "/conferences/new", :class => "button", :method => :get %>

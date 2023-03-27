@@ -53,5 +53,15 @@ RSpec.describe "/conferences", type: :feature do
         expect(current_path).to eq("/conferences/new")
       end
     end
+
+    it "I see a link to edit each conferences's info" do
+      visit "/conferences"
+
+      expect(page).to have_selector(:link_or_button, "Edit")
+
+      click_button("Edit", match: :first)
+
+      expect(current_path).to eq("/conferences/#{pac_12.id}/edit")
+    end
   end
 end
