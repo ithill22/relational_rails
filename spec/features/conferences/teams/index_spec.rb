@@ -95,10 +95,19 @@ RSpec.describe "/conferences/:conference_id/teams", type: :feature do
 
       expect(team1.school_name).to appear_before(team3.school_name)
 
-      click_link("A-Z")
+      click_link "A-Z"
 
-      expect(current_path).to eq("/conferences/#{pac_12.id}/teams?order_by=school_name")
+      expect(page).to have_current_path("/conferences/#{pac_12.id}/teams?order=a-z")
       expect(team3.school_name).to appear_before(team1.school_name)
+      
+      visit "/conferences/#{big_10.id}/teams"
+
+      expect(team2.school_name).to appear_before(team4.school_name)
+
+      click_link "A-Z"
+
+      expect(page).to have_current_path("/conferences/#{big_10.id}/teams?order=a-z")
+      expect(team4.school_name).to appear_before(team2.school_name)
     end
   end
 end
