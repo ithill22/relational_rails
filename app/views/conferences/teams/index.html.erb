@@ -1,4 +1,4 @@
-<a href="/teams">Teams</a> &emsp; <a href="/conferences">Conferences</a>
+<%= link_to "Conferences", "/conferences" %> | <%= link_to "Teams", "/teams" %>
 <h1><%= @conference.name %> Teams</h1>
 <% @conference.teams.each do |team| %>
   <p>School Name: <%= team.school_name %></p>
@@ -6,3 +6,4 @@
   <p>Rank: <%= team.rank %></p>
   <p>Private School?: <%= team.private %></p>
 <% end %>
+<p> <%= button_to "Create Team", "/conferences/#{@conference.id}/teams/new", method: :get %></p>

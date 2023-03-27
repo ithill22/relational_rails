@@ -25,7 +25,7 @@ RSpec.describe Conference, type: :model do
   describe 'instance methods' do
     it '::order_by_created_at' do
 
-      expect(Conference.order_by_created_at).to eq(pac_12, big_10)
+      expect(Conference.order_by_created_at).to eq([pac_12, big_10])
     end
 
     it '#number_of_teams' do
