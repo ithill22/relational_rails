@@ -3,4 +3,4 @@
 <p>Mascot: <%= @team.mascot %></p>
 <p>Rank: <%= @team.rank %></p>
 <p>Private School?: <%= @team.private %></p>
-
+<p> <%= button_to "Update Team", "/teams/#{@team.id}/edit", method: :get %></p>

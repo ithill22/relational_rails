@@ -1,0 +1,17 @@
+<%= link_to "Conferences", "/conferences" %> | <%= link_to "Teams", "/teams" %>
+<%= form_with model: @team, url: "/teams/#{@team.id}", method: :patch, local: true do |form| %>
+  <h4><%= form.label :title, "Update Team:" %></h4>
+  <%= form.label :school_name, 'School Name:' %><br>
+  <%= form.text_field :school_name %><br><br>
+<%= form.label :mascot, 'Mascot:' %><br>
+  <%= form.text_field :mascot %><br><br>
+  <%= form.label :private, 'Is this a Private School?' %><br>
+  <%= form.label :private_true, 'Yes' %>
+  <%= form.radio_button :private, true %><br>
+  <%= form.label :private_false, 'No' %>
+  <%= form.radio_button :private, false %><br><br>
+
+  <%= form.label :rank, 'School Rank:' %><br>
+  <%= form.number_field :rank, in: 0..1000, step: 1 %><br><br>
+  <%= form.submit 'Update Team' %>
+<% end %>
