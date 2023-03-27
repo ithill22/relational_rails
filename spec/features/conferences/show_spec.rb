@@ -92,7 +92,7 @@ RSpec.describe '/conferences/:id', type: :feature do
     end
 
     describe "When I click 'Update Conference'" do
-      it "I am taken to 'conferences/:id/edit' where I see a form for a new conference record" do
+      it "I am taken to 'conferences/:id/edit' where I see a form to update the conference's attributes" do
         visit "/conferences/#{pac_12.id}"
         click_button "Update Conference"
 
