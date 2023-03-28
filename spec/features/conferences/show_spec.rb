@@ -99,5 +99,18 @@ RSpec.describe '/conferences/:id', type: :feature do
         expect(current_path).to eq("/conferences/#{pac_12.id}/edit")
       end
     end
+    it "I see a link to delete the parent" do
+      visit "/conferences/#{pac_12.id}"
+
+      expect(page).to have_selector(:link_or_button, "Delete Conference")
+    end
+
+    it "When I click on delete conference, the parent and all children are deleted and I am redirected to the conference index page where the conference is no longer visible" do
+      visit "/conferences/#{pac_12.id}"
+      click_button "Delete Conference"
+
+      expect(current_path).to eq("/conferences")
+      expect(page).to_not have_content(pac_12.name)
+    end
   end
 end

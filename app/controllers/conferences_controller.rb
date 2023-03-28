@@ -21,9 +21,16 @@ class ConferencesController < ApplicationController
   end
 
   def update
-    conference = conference = Conference.find(params[:id])
+    conference = Conference.find(params[:id])
     conference.update(conference_params)
     redirect_to "/conferences/#{conference.id}"
+  end
+
+  def destroy
+    conference = Conference.find(params[:id])
+    conference.teams.destroy_all
+    conference.destroy
+    redirect_to "/conferences"
   end
 
   private
