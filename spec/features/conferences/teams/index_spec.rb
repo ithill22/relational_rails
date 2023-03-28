@@ -119,5 +119,15 @@ RSpec.describe "/conferences/:conference_id/teams", type: :feature do
 
       expect(current_path).to eq("/teams/#{team1.id}/edit")
     end
+
+    it "I see a form that allows me filter teams by rank" do
+      visit "/conferences/#{pac_12.id}/teams"
+
+      fill_in "Teams Ranked Above:", with: 10
+
+      expect(current_path).to eq("/teams")
+      expect(page).to have_content(team1.school_name)
+      expect(page).to_not have_content(team4.school_name)
+    end
   end
 end
