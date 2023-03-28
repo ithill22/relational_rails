@@ -1,6 +1,13 @@
 <%= link_to "Conferences", "/conferences" %> | <%= link_to "Teams", "/teams" %>
 <br><br>
-<%= link_to 'A-Z', "/conferences/#{@conference.id}/teams?order=a-z", method: :get %>
+<%= link_to 'A-Z', "/conferences/#{@conference.id}/teams?order_by=school_name", method: :get %>
+<br>
+<%= form_with model: @team, url: "/conferences/#{@conference.id}/teams", method: :get, local: true do |form| %>
+<%= form.label :rank, "School Rank:" %>
+<%= form.number_field :rank, in: 0..1000, step: 1 %>
+<%= form.submit "Show Teams Above Selected Rank" %>
+<% end %>
+<br><br>
 <h1><%= @conference.name %> Teams</h1>
 <% @teams.each do |team| %>
   <h3><%= link_to team.school_name, "/teams/#{team.id}" %></h3>

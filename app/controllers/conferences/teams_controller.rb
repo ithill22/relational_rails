@@ -1,7 +1,7 @@
 class Conferences::TeamsController < ApplicationController
   def index
     @conference = Conference.find(params[:conference_id])
-    @teams = @conference.team_order(params['order'])
+    @teams = @conference.find_teams(params)
     # require 'pry'; binding.pry
   end
 

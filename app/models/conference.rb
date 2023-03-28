@@ -9,9 +9,20 @@ class Conference < ApplicationRecord
     teams.size
   end
 
-  def team_order(order)
-    teams = self.teams
-    teams = teams.order(:school_name) if order == 'a-z'
-    teams
+  def find_teams(params)
+    if !params[:order_by].nil?
+      team_order(params)
+    elsif !params[:rank].nil?
+      teams_by_rank(params)
+    else
+      teams
+    end
+  end
+  def team_order(params)
+    teams.order(params[:order_by])
+  end
+
+  def teams_by_rank(params)
+    teams.where('rank > ?', params[:rank])
   end
 end

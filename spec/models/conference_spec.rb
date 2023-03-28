@@ -41,9 +41,14 @@ let!(:team4) { big_10.teams.create!(school_name: "Ohio State University",
       expect(pac_12.number_of_teams).to eq(2)
     end
 
-    it 'team_order' do
+    it '#team_order' do
       
-      expect(pac_12.team_order('a-z')).to eq([team3, team1])
+      expect(pac_12.team_order({order_by: "school_name"})).to eq([team3, team1])
+    end
+
+    it '#find_teams' do
+      expect(pac_12.find_teams({order_by: "school_name"})).to eq([team3, team1])
+      expect(big_10.find_teams({rank: 10})).to eq([team2])
     end
   end
 end
