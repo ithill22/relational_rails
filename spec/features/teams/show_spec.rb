@@ -71,5 +71,19 @@ RSpec.describe '/teams/:id', type: :feature do
         expect(current_path).to eq("/teams/#{team1.id}/edit")
       end
     end
+
+    it "I see a link to delete the team" do
+      visit "/teams/#{team1.id}"
+
+      expect(page).to have_selector(:link_or_button, "Delete Team")
+    end
+
+    it "When I click on delete team, the parent and all children are deleted and I am redirected to the team index page where the team is no longer visible" do
+      visit "/teams/#{team1.id}"
+      click_button "Delete Conference"
+
+      expect(current_path).to eq("/teams")
+      expect(page).to_not have_content(team1.school_name)
+    end
   end
 end
