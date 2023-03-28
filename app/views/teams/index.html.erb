@@ -7,4 +7,5 @@
   <p>Rank: <%= team.rank %></p>
   <p>Private School?: <%= team.private %></p>
   <p><%= button_to "Edit", "/teams/#{team.id}/edit", method: :get %></p>
+  <p> <%= button_to "Delete", "/teams/#{team.id}", method: :delete %></p>
 <% end %>

@@ -49,5 +49,13 @@ RSpec.describe "/teams", type: :feature do
 
       expect(current_path).to eq("/teams/#{team1.id}/edit")
     end
+
+    it "has a delete button next to each team" do
+      visit "/teams"
+      click_button("Delete", match: :first)
+
+      expect(current_path).to eq("/teams")
+      expect(page).to_not have_content(team1.school_name)
+    end
   end
 end

@@ -63,5 +63,13 @@ RSpec.describe "/conferences", type: :feature do
 
       expect(current_path).to eq("/conferences/#{pac_12.id}/edit")
     end
+
+    it "has a delete button next to each conference" do
+      visit "/conferences"
+      click_button("Delete", match: :first)
+
+      expect(current_path).to eq("/conferences")
+      expect(page).to_not have_content(pac_12.name)
+    end
   end
 end

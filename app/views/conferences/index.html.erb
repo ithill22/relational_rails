@@ -5,6 +5,8 @@
 <% @conferences.each do |conference| %>
   <h2><%= link_to conference.name, "/conferences/#{conference.id}" %></h2>
     <p><%= button_to "Edit", "/conferences/#{conference.id}/edit", method: :get %></p>
+    <p><%= button_to "Delete", "/conferences/#{conference.id}", method: :delete %></p>
+
     <p class="tab">- Created: <%=conference.created_at %></p>
 <% end %>
 <%# <a href="/conferences/new">New Conference</a> %>

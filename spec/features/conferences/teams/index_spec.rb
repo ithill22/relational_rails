@@ -125,7 +125,7 @@ RSpec.describe "/conferences/:conference_id/teams", type: :feature do
 
       fill_in "School Rank:", with: 10
       click_button "Show Teams Above Selected Rank"
-save_and_open_page
+
       expect(current_path).to eq("/conferences/#{big_10.id}/teams")
       expect(page).to have_content(team2.school_name)
       expect(page).to_not have_content(team4.school_name)
