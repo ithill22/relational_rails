@@ -32,24 +32,24 @@ RSpec.describe "/conferences/:conference_id/teams", type: :feature do
 
       visit "/conferences/#{pac_12.id}/teams"
 
-      expect(page).to have_content("School Name: #{team1.school_name}")
+      expect(page).to have_content("#{team1.school_name}")
       expect(page).to have_content("Mascot: #{team1.mascot}")
       expect(page).to have_content("Rank: #{team1.rank}")
       expect(page).to have_content("Private School?: #{team1.private}")
 
-      expect(page).to have_content("School Name: #{team3.school_name}")
+      expect(page).to have_content("#{team3.school_name}")
       expect(page).to have_content("Mascot: #{team3.mascot}")
       expect(page).to have_content("Rank: #{team3.rank}")
       expect(page).to have_content("Private School?: #{team3.private}")
 
       visit "/conferences/#{big_10.id}/teams"
 
-      expect(page).to have_content("School Name: #{team2.school_name}")
+      expect(page).to have_content("#{team2.school_name}")
       expect(page).to have_content("Mascot: #{team2.mascot}")
       expect(page).to have_content("Rank: #{team2.rank}")
       expect(page).to have_content("Private School?: #{team2.private}")
 
-      expect(page).to have_content("School Name: #{team4.school_name}")
+      expect(page).to have_content("#{team4.school_name}")
       expect(page).to have_content("Mascot: #{team4.mascot}")
       expect(page).to have_content("Rank: #{team4.rank}")
       expect(page).to have_content("Private School?: #{team4.private}")
@@ -108,6 +108,16 @@ RSpec.describe "/conferences/:conference_id/teams", type: :feature do
 
       expect(page).to have_current_path("/conferences/#{big_10.id}/teams?order=a-z")
       expect(team4.school_name).to appear_before(team2.school_name)
+    end
+
+    it "I see a link to edit each team's info" do
+      visit "/conferences/#{pac_12.id}/teams"
+
+      expect(page).to have_selector(:link_or_button, "Edit")
+
+      click_button("Edit", match: :first)
+
+      expect(current_path).to eq("/teams/#{team1.id}/edit")
     end
   end
 end

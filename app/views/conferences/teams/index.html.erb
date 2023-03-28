@@ -3,9 +3,10 @@
 <%= link_to 'A-Z', "/conferences/#{@conference.id}/teams?order=a-z", method: :get %>
 <h1><%= @conference.name %> Teams</h1>
 <% @teams.each do |team| %>
-  <p>School Name: <%= team.school_name %></p>
+  <h3><%= link_to team.school_name, "/teams/#{team.id}" %></h3>
   <p>Mascot: <%= team.mascot %></p>
   <p>Rank: <%= team.rank %></p>
   <p>Private School?: <%= team.private %></p>
+  <p><%= button_to "Edit", "/teams/#{team.id}/edit", method: :get %></p>
 <% end %>
 <p> <%= button_to "Create Team", "/conferences/#{@conference.id}/teams/new", method: :get %></p>

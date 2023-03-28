@@ -1,7 +1,10 @@
 <%= link_to "Conferences", "/conferences" %> | <%= link_to "Teams", "/teams" %>
+<hr>
+
 <% @teams.each do |team| %>
-  <p>School Name: <%= team.school_name %></p>
+  <h2><%= link_to team.school_name, "/teams/#{team.id}" %></h2>
   <p>Mascot: <%= team.mascot %></p>
   <p>Rank: <%= team.rank %></p>
   <p>Private School?: <%= team.private %></p>
+  <p><%= button_to "Edit", "/teams/#{team.id}/edit", method: :get %></p>
 <% end %>
