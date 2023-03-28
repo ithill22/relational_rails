@@ -109,5 +109,15 @@ RSpec.describe "/conferences/:conference_id/teams", type: :feature do
       expect(page).to have_current_path("/conferences/#{big_10.id}/teams?order=a-z")
       expect(team4.school_name).to appear_before(team2.school_name)
     end
+
+    it "I see a link to edit each team's info" do
+      visit "/conferences/#{pac_12.id}/teams"
+
+      expect(page).to have_selector(:link_or_button, "Edit")
+
+      click_button("Edit", match: :first)
+
+      expect(current_path).to eq("/teams/#{team1.id}/edit")
+    end
   end
 end
