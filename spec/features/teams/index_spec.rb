@@ -31,7 +31,7 @@ RSpec.describe "/teams", type: :feature do
     it "I see a link at the top of the page that take me to the team index page" do
       visit "/teams"
 
-      expect(page).to have_link("Teams", href: '/teams')
+      expect(page).to have_link("Private Schools", href: '/teams')
     end
 
     it "I see a link at the top of the page that takes me to the conference index page" do

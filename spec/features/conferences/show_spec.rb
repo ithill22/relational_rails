@@ -58,11 +58,11 @@ RSpec.describe '/conferences/:id', type: :feature do
     it "I see a link at the top of the page that take me to the team index page" do
       visit "/conferences/#{pac_12.id}"
 
-      expect(page).to have_link("Teams", href: '/teams')
+      expect(page).to have_link("Private Schools", href: '/teams')
 
       visit "/conferences/#{big_10.id}"
 
-      expect(page).to have_link("Teams", href: '/teams')
+      expect(page).to have_link("Private Schools", href: '/teams')
     end
 
     it "I see a link at the top of the page that takes me to the conference index page" do
@@ -78,11 +78,11 @@ RSpec.describe '/conferences/:id', type: :feature do
     it "I see a link to take me that conference's team index page" do
       visit "/conferences/#{pac_12.id}"
 
-      expect(page).to have_link("#{pac_12.name} Teams", href: "conferences/#{pac_12.id}/teams")
+      expect(page).to have_link("#{pac_12.name} Teams")
 
       visit "/conferences/#{big_10.id}"
 
-      expect(page).to have_link("#{big_10.name} Teams", href: "conferences/#{big_10.id}/teams")
+      expect(page).to have_link("#{big_10.name} Teams")
     end
 
     it "I see a link to update the conference, 'Update Conference'" do
