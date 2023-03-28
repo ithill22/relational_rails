@@ -80,7 +80,7 @@ RSpec.describe '/teams/:id', type: :feature do
 
     it "When I click on delete team, the parent and all children are deleted and I am redirected to the team index page where the team is no longer visible" do
       visit "/teams/#{team1.id}"
-      click_button "Delete Conference"
+      click_button "Delete Team"
 
       expect(current_path).to eq("/teams")
       expect(page).to_not have_content(team1.school_name)
