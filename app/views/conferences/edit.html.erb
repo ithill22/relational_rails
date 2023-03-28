@@ -1,4 +1,4 @@
-<%= link_to "Conferences", "/conferences" %> | <%= link_to "Teams", "/teams" %>
+<%= link_to "Conferences", "/conferences" %> | <%= link_to "Private Schools", "/teams" %>
 <%= form_with model: @conference, url: "/conferences/#{@conference.id}", method: :patch, local: true do |form| %>
   <h4><%= form.label :title, "Update Conference:" %></h4>
   <%= form.label :name, 'Name:' %><br>
