@@ -7,7 +7,7 @@
     <p><%= button_to "Edit", "/conferences/#{conference.id}/edit", method: :get %></p>
     <p><%= button_to "Delete", "/conferences/#{conference.id}", method: :delete %></p>
 
-    <p class="tab">- Created: <%=conference.created_at %></p>
+    <p>- Created: <%=conference.created_at %></p>
 <% end %>
 <%# <a href="/conferences/new">New Conference</a> %>
 <%= button_to "New Conference", "/conferences/new", :class => "button", :method => :get %>
